@@ -10,7 +10,7 @@ import streamlit as st
 import pickle
 import numpy as np
 
-df=pd.read_excel("D://newmoli.xlsx")
+df=pd.read_excel("newmoli.xlsx")
 # print(df.columns)
 
 label_encoder = LabelEncoder()
