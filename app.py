@@ -1,9 +1,4 @@
 import pandas as pd
-try:
-    import sklearn
-    st.write("scikit-learn is installed!")
-except ImportError:
-    st.write("scikit-learn is not installed.")
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -13,6 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import streamlit as st
 import pickle
+import numpy as np
 
 df=pd.read_excel("D://newmoli.xlsx")
 # print(df.columns)
@@ -75,7 +71,7 @@ certifications = ['Select a certification'] + df['certification_name'].unique().
 selected_certification = st.selectbox('Select certification:', certifications)
 
 
-if st.button('Calculate Average Age'):
+if st.button('Calculate Rate'):
     if selected_certification!="Select a certification" and selected_entity!="Select certification" and selected_language!="Select a language":
         
         def find_entity_id(selected_entity):
@@ -94,12 +90,18 @@ if st.button('Calculate Average Age'):
     },index=[0])
         
         predictions =loaded_pipeline.predict(input_data)
+        ceil=np.ceil(predictions)
+        format=int(ceil)
+        def round_to_nearest_5(n):
+            return 5 * round(n / 5)
     
     # Display predictions
-        st.write(f"{predictions}")
+        # st.write(f"{ceil}")
+        st.success(f"The predicted rate is : {round_to_nearest_5(format)}")
+        # st.write(f"{predictions}")
     
     else:
-        st.write("Please select values from the dropdown.")
+        st.warning("Please select values from the dropdown.")
         
         
         
