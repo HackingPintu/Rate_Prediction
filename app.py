@@ -70,7 +70,6 @@ selected_entity = st.selectbox('Select city:', cities)
 certifications = ['Select a certification'] + df['certification_name'].unique().tolist()
 selected_certification = st.selectbox('Select certification:', certifications)
 
-st.write(r2_score)
 
 if st.button('Calculate Rate'):
     if selected_certification!="Select a certification" and selected_entity!="Select certification" and selected_language!="Select a language":
@@ -98,7 +97,7 @@ if st.button('Calculate Rate'):
     
     # Display predictions
         # st.write(f"{ceil}")
-        st.success(f"The predicted rate is : {round_to_nearest_5(format)}")
+        st.success(f"The predicted rate is : {round_to_nearest_5(format)} with r2 score of {r2}")
         # st.write(f"{predictions}")
     
     else:
