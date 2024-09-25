@@ -34,7 +34,7 @@ preprocessor = ColumnTransformer(
 
 pipeline = Pipeline(steps=[
     ('preprocessor', preprocessor),
-    ('model', XGBRegressor(n_estimators=300, random_state=43,learning_rate=0.1))
+    ('model', RandomForestRegressor(n_estimators=300, random_state=43))
 ])
 
 pipeline.fit(X_train, y_train)
@@ -70,6 +70,7 @@ selected_entity = st.selectbox('Select city:', cities)
 certifications = ['Select a certification'] + df['certification_name'].unique().tolist()
 selected_certification = st.selectbox('Select certification:', certifications)
 
+st.write(r2_score)
 
 if st.button('Calculate Rate'):
     if selected_certification!="Select a certification" and selected_entity!="Select certification" and selected_language!="Select a language":
