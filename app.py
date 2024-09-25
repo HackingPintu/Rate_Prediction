@@ -1,4 +1,9 @@
 import pandas as pd
+try:
+    import sklearn
+    st.write("scikit-learn is installed!")
+except ImportError:
+    st.write("scikit-learn is not installed.")
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
