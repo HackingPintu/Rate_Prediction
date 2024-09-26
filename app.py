@@ -97,7 +97,7 @@ if st.button('Calculate Rate'):
     
     # Display predictions
         # st.write(f"{ceil}")
-        st.success(f"The predicted rate is : {round_to_nearest_5(int(np.ceil(predictions)}")
+        st.success(f"The predicted rate is : {round_to_nearest_5(int(np.ceil(predictions)))}")
         # st.write(f"{predictions}")
     
     else:
