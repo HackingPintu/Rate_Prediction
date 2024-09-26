@@ -90,14 +90,14 @@ if st.button('Calculate Rate'):
     },index=[0])
         
         predictions =loaded_pipeline.predict(input_data)
-        ceil=np.ceil(predictions)
-        format=int(ceil)
+        # ceil=np.ceil(predictions)
+        # format=int(ceil)
         def round_to_nearest_5(n):
             return 5 * round(n / 5)
     
     # Display predictions
         # st.write(f"{ceil}")
-        st.success(f"The predicted rate is : {round_to_nearest_5(format)} with r2 score of {r2}")
+        st.success(f"The predicted rate is : {round_to_nearest_5(int(np.ceil(predictions)}")
         # st.write(f"{predictions}")
     
     else:
