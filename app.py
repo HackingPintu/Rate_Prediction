@@ -60,6 +60,8 @@ with open('pipeline.pkl', 'wb') as file:
 with open('pipeline.pkl', 'rb') as file:
     loaded_pipeline = pickle.load(file)
 
+
+
 st.title('Rate Prediction model')
 
 
